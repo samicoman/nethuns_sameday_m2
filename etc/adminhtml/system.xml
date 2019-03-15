@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="nethunssameday" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Sameday Courier</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="automate" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Automate</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Automatically create the AWB without the need to process the order</comment>
+                </field>
+                <field id="showmethod" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Show Method if Not Applicable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_class>shipping-skip-hide</frontend_class>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Method Name</label>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="username" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Username</label>
+                </field>
+                <field id="password" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Password</label>
+                </field>
+                <field id="api_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API URL</label>
+                </field>
+                <field id="http_user" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>HTTP Auth User</label>
+                </field>
+                <field id="http_pass" translate="label" type="text" sortOrder="26" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>HTTP Auth Password</label>
+                </field>
+                <field id="shipping_origin" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping origin</label>
+                    <source_model>Nethuns\Sameday\Model\Carrier\Source\Shippingorigin</source_model>
+                    <comment>The address the package will be picked up from (usually the warehouse).</comment>
+                </field>
+                <field id="package_type" translate="label" type="select" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Package Type</label>
+                    <source_model>Nethuns\Sameday\Model\Carrier\Source\Packagetype</source_model>
+                    <comment>The most often package size used.</comment>
+                </field>
+                <field id="awb_payment" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>AWB Payment</label>
+                    <source_model>Nethuns\Sameday\Model\Carrier\Source\Awbpayment</source_model>
+                    <comment>Who pays for the shipping. If the shipping costs were already paid by the customer, choose Sender.</comment>
+                </field>
+                <field id="return_papers" translate="label" type="select" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Add Return Papers Service Tax</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Add this tax by default when getting the delivery quote.</comment>
+                </field>
+                <field id="repack" translate="label" type="select" sortOrder="66" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Add Repack Service Tax</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Add this tax by default when getting the delivery quote.</comment>
+                </field>
+                <field id="exchange_package" translate="label" type="select" sortOrder="67" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Add Package Exchange Service Tax</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Add this tax by default when getting the delivery quote.</comment>
+                </field>
+                <field id="open_package" translate="label" type="select" sortOrder="68" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Add Open Package Service Tax</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Add this tax by default when getting the delivery quote.</comment>
+                </field>
+                <field id="default_height" translate="label" type="text" sortOrder="72" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Default Package Height</label>
+                    <comment>Most common value met. Used if not already set on product.</comment>
+                </field>
+                <field id="default_length" translate="label" type="text" sortOrder="73" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Default Package Length</label>
+                    <comment>Most common value met. Used if not already set on product.</comment>
+                </field>
+                <field id="defaul_width" translate="label" type="text" sortOrder="74" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Default Package Width</label>
+                    <comment>Most common value met. Used if not already set on product.</comment>
+                </field>
+                <field id="default_weight" translate="label" type="text" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Default Package Weight</label>
+                    <comment>Most common value met. Used if not already set on product.</comment>
+                </field>
+                <field id="sallowspecific" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Ship to Applicable Countries</label>
+                    <frontend_class>shipping-applicable-country</frontend_class>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="91" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Ship to Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="95" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Displayed Error Message</label>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

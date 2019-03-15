@@ -1,0 +1,44 @@
+{
+  "name": "nethuns/module-sameday",
+  "description": "Sameday Courier (Romania) integration for Magento 2",
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": "~7.1.3||~7.2.0",
+    "lib-libxml": "*",
+    "magento/framework": "102.0.*",
+    "magento/module-backend": "101.0.*",
+    "magento/module-config": "101.1.*",
+    "magento/module-directory": "100.3.*",
+    "magento/module-quote": "101.1.*",
+    "magento/module-sales": "102.0.*",
+    "magento/module-shipping": "100.3.*",
+    "magento/module-store": "101.0.*"
+  },
+  "suggest": {
+    "magento/module-checkout": "100.3.*"
+  },
+  "type": "magento2-module",
+  "authors": [
+    {
+      "name": "Samuel Coman",
+      "email": "samicoman@gmail.com",
+      "homepage": "https://www.samicoman.com/",
+      "role": "Developer"
+    }
+  ],
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Nethuns\\Sameday\\": ""
+    }
+  },
+  "version": "1.0.0"
+}
