@@ -4,6 +4,7 @@ namespace Nethuns\Sameday\Model\Rate;
 
 use \Magento\Directory\Model\Region;
 use \Magento\Framework\App\Config\ScopeConfigInterface;
+use \Magento\Framework\Exception\LocalizedException;
 use \Magento\Quote\Model\Quote\Address\RateRequest;
 use \Magento\Store\Model\ScopeInterface;
 use \Nethuns\Sameday\Model\Api;
@@ -95,6 +96,7 @@ class Request extends \Magento\Framework\DataObject
 
     /**
      * @param RateRequest $request
+     * @throws LocalizedException
      */
     public function setAwbRecipient($request)
     {
@@ -116,6 +118,13 @@ class Request extends \Magento\Framework\DataObject
             array(),
             array('name' => $city, 'county' => $response['data'][0]['id'], 'address' => $request->getDestStreet())
         );
+
+        if (empty($response['data'])) {
+            throw new LocalizedException(
+                __('The city looks invalid. Please type in a valid city name.')
+            );
+        }
+
         $data['city'] = $response['data'][0]['id'];
 
         $data['address'] = $request->getDestStreet() . ' ' . $request->getDestStreetLine2();
