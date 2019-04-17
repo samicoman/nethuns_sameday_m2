@@ -38,13 +38,13 @@ class Carrier extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline impl
      */
     const CODE = 'nethunssameday';
 
-    const CONFIG_SHIPPING_ORIGIN = 'carriers/nethuns_sameday/shipping_origin';
-    const CONFIG_PACKAGE_TYPE = 'carriers/nethuns_sameday/package_type';
-    const CONFIG_AWB_PAYMENT = 'carriers/nethuns_sameday/awb_payment';
-    const CONFIG_RETURN_PAPERS_SERVICE = 'carriers/nethuns_sameday/return_papers';
-    const CONFIG_REPACK_SERVICE = 'carriers/nethuns_sameday/repack';
-    const CONFIG_EXCHANGE_PACKAGE_SERVICE = 'carriers/nethuns_sameday/exchange_package';
-    const CONFIG_OPEN_PACKAGE_SERVICE = 'carriers/nethuns_sameday/open_package';
+    const CONFIG_SHIPPING_ORIGIN = 'carriers/nethunssameday/shipping_origin';
+    const CONFIG_PACKAGE_TYPE = 'carriers/nethunssameday/package_type';
+    const CONFIG_AWB_PAYMENT = 'carriers/nethunssameday/awb_payment';
+    const CONFIG_RETURN_PAPERS_SERVICE = 'carriers/nethunssameday/return_papers';
+    const CONFIG_REPACK_SERVICE = 'carriers/nethunssameday/repack';
+    const CONFIG_EXCHANGE_PACKAGE_SERVICE = 'carriers/nethunssameday/exchange_package';
+    const CONFIG_OPEN_PACKAGE_SERVICE = 'carriers/nethunssameday/open_package';
 
     /**
      * Code of the carrier
@@ -231,6 +231,7 @@ class Carrier extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline impl
      *
      * @param RateRequest $request
      * @return $this
+     * @throws LocalizedException
      */
     public function setRequest(RateRequest $request)
     {
@@ -238,12 +239,20 @@ class Carrier extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline impl
 
         $requestObject = $this->_rawRequestFactory->create();
 
+        $shippingOriginConfig = $this->_scopeConfig->getValue(
+            self::CONFIG_SHIPPING_ORIGIN,
+            ScopeInterface::SCOPE_WEBSITE
+        );
+
+        if(empty($shippingOriginConfig)) {
+            throw new LocalizedException(
+                __('Shipping origin is not configured. Please set it in the module settings')
+            );
+        }
+
         $shippingOrigin = explode(
             '___',
-            $this->_scopeConfig->getValue(
-                self::CONFIG_SHIPPING_ORIGIN,
-                ScopeInterface::SCOPE_WEBSITE
-            )
+            $shippingOriginConfig
         );
 
         $requestObject->setPickupPoint(

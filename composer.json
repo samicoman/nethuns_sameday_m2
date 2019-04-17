@@ -28,6 +28,12 @@
       "role": "Developer"
     }
   ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/samicoman/nethuns_sameday_m2"
+    }
+  ],
   "license": [
     "OSL-3.0",
     "AFL-3.0"
@@ -40,5 +46,5 @@
       "Nethuns\\Sameday\\": ""
     }
   },
-  "version": "1.0.0"
+  "version": "1.0.2"
 }

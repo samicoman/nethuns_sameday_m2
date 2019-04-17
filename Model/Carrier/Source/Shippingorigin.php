@@ -40,6 +40,11 @@ class Shippingorigin implements ArrayInterface
     public function getPickupPoints()
     {
         $pickup_points = array();
+
+        if(empty($this->api->getApiUrl())) {
+            return array();
+        }
+
         $response = $this->api->request(API::METHOD_PICKUP_POINTS, \Zend_Http_Client::GET);
 
         if(empty($response['data'])) {

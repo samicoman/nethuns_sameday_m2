@@ -41,11 +41,11 @@ use \Nethuns\Sameday\Model\Carrier;
  */
 class Request extends \Magento\Framework\DataObject
 {
-    const CONFIG_DEFAULT_PACKAGE_TYPE = 'carriers/nethuns_sameday/package_type';
-    const CONFIG_DEFAULT_PACKAGE_HEIGHT = 'carriers/nethuns_sameday/default_height';
-    const CONFIG_DEFAULT_PACKAGE_LENGTH = 'carriers/nethuns_sameday/default_length';
-    const CONFIG_DEFAULT_PACKAGE_WIDTH = 'carriers/nethuns_sameday/default_width';
-    const CONFIG_DEFAULT_PACKAGE_WEIGHT = 'carriers/nethuns_sameday/default_weight';
+    const CONFIG_DEFAULT_PACKAGE_TYPE = 'carriers/nethunssameday/package_type';
+    const CONFIG_DEFAULT_PACKAGE_HEIGHT = 'carriers/nethunssameday/default_height';
+    const CONFIG_DEFAULT_PACKAGE_LENGTH = 'carriers/nethunssameday/default_length';
+    const CONFIG_DEFAULT_PACKAGE_WIDTH = 'carriers/nethunssameday/default_width';
+    const CONFIG_DEFAULT_PACKAGE_WEIGHT = 'carriers/nethunssameday/default_weight';
 
     protected $_packageType;
 

@@ -24,11 +24,11 @@ class Api extends \Magento\Framework\Model\AbstractModel
     /** @var ScopeConfigInterface */
     protected $scopeConfig;
 
-    const CONFIG_API_URL = 'carriers/nethuns_sameday/api_url';
-    const CONFIG_API_USER = 'carriers/nethuns_sameday/username';
-    const CONFIG_API_PASSWORD = 'carriers/nethuns_sameday/password';
-    const CONFIG_HTTP_AUTH_USER = 'carriers/nethuns_sameday/http_user';
-    const CONFIG_HTTP_AUTH_PASSWORD = 'carriers/nethuns_sameday/http_pass';
+    const CONFIG_API_URL = 'carriers/nethunssameday/api_url';
+    const CONFIG_API_USER = 'carriers/nethunssameday/username';
+    const CONFIG_API_PASSWORD = 'carriers/nethunssameday/password';
+    const CONFIG_HTTP_AUTH_USER = 'carriers/nethunssameday/http_user';
+    const CONFIG_HTTP_AUTH_PASSWORD = 'carriers/nethunssameday/http_pass';
 
     const METHOD_AUTHENTICATE = 'authenticate';
     const METHOD_GEOLOCATION_CITY = 'geolocation/city';

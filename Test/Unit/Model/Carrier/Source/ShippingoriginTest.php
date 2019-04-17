@@ -30,6 +30,10 @@ class ShippingoriginTest extends \PHPUnit\Framework\TestCase
         );
 
         $this->api->expects($this->once())
+            ->method('getApiUrl')
+            ->willReturn('http://api.url');
+
+        $this->api->expects($this->once())
             ->method('request')
             ->with(
                 API::METHOD_PICKUP_POINTS,
