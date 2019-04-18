@@ -109,6 +109,13 @@ class Request extends \Magento\Framework\DataObject
             array(),
             array('name' => $region)
         );
+
+        if (empty($response['data'])) {
+            throw new LocalizedException(
+                __('The county looks invalid. Please select a Romanian county.')
+            );
+        }
+
         $data['county'] = $response['data'][0]['id'];
 
         $city = $request->getDestCity();
