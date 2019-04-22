@@ -384,6 +384,7 @@ class Carrier extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline impl
             $this->debugErrors($error);
 
             $result->append($this->getErrorMessage());
+            return;
         }
 
         /* @var $rate \Magento\Quote\Model\Quote\Address\RateResult\Method */
@@ -466,6 +467,7 @@ class Carrier extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline impl
      *
      * @param DataObject $request
      * @return DataObject $request
+     * @throws LocalizedException
      */
     protected function _prepareShipmentRequest(DataObject $request)
     {
@@ -478,6 +480,13 @@ class Carrier extends \Magento\Shipping\Model\Carrier\AbstractCarrierOnline impl
                 ScopeInterface::SCOPE_WEBSITE
             )
         );
+
+        if(empty($shippingOriginConfig)) {
+            throw new LocalizedException(
+                __('Shipping origin is not configured. Please set it in the module settings')
+            );
+        }
+
         $request->setPickupPoint($shippingOrigin[0]);
         $request->setContactPerson($shippingOrigin[1]);
 
