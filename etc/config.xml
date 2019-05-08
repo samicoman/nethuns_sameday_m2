@@ -5,6 +5,7 @@
             <nethunssameday>
                 <active>1</active>
                 <sallowspecific>0</sallowspecific>
+                <max_package_weight>200</max_package_weight>
                 <model>Nethuns\Sameday\Model\Carrier</model>
                 <name>Sameday Courier</name>
                 <title>Sameday Courier</title>

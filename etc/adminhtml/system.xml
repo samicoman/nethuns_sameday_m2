@@ -90,6 +90,9 @@
                     <label>Default Package Weight</label>
                     <comment>Most common value met. Used if not already set on product.</comment>
                 </field>
+                <field id="max_package_weight" translate="label" type="text" sortOrder="85" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Max Package Weight</label>
+                </field>
                 <field id="sallowspecific" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Ship to Applicable Countries</label>
                     <frontend_class>shipping-applicable-country</frontend_class>
